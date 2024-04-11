@@ -1,4 +1,4 @@
-<nav class="p-3 text-bg-dark">
+<nav class="p-3 text-bg-dark fixed-top">
     <div class="container">
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
         <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
@@ -19,8 +19,18 @@
         </form> --}}
 
         <div class="text-end">
-          <button type="button" class="btn btn-outline-primary me-2">Login</button>
-          <button type="button" class="btn btn-outline-primary">Sign-up</button>
+          @auth
+          <form method="POST" action="{{route('logout')}}">
+            @csrf
+            <button type="submit" class="btn btn-outline-danger me-2">Logout</button>
+          </form>
+          @endauth
+          @guest
+          
+          <a href="{{route('login')}}" class="btn btn-outline-primary">Login</a>
+          <a href="{{route('register')}}" class="btn btn-outline-primary">Sign-up</a> 
+          @endguest
+          
         </div>
       </div>
     </div>
