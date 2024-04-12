@@ -11,4 +11,5 @@ Route::get('/', function () {
 
 Route::middleware('auth')->group(function(){
     Route::get('/home' , [CipperController::class , 'index'])->name('home');
+    Route::post('/cip/store' , [CipperController::class , 'store'])->name('cip.store');
 });

@@ -44,4 +44,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function cips()
+    {
+        return $this->hasMany(Cip::class);
+    }
 }
